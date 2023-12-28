@@ -34,6 +34,7 @@ fping -a -g $TARGET 2>/dev/null | tee > runD/all_hosts.txt
 # MYSQL: 1433
 # RDP: 3389
 # ... Add more ports as needed
+echo "Running: masscan"
 
 my_ports=("80" "21" "22" "23")
 
@@ -42,7 +43,7 @@ for port in "${my_ports[@]}"; do
     ips_file="runD/ips_port${port}.txt"
     
     # Run masscan and save the output to the specified file
-    masscan -iL runD/all_hosts.txt -p $port --output-format grepable --output-filename "$output_file"
+    masscan -iL runD/all_hosts.txt -p $port --output-format grepable --output-filename "$output_file" > /dev/null 2>&1
 
     # Extract and save IPs using grep and awk
     cat "$output_file" | grep -o 'Host:.*' | awk '{print $2}' > "$ips_file"
