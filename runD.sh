@@ -17,6 +17,7 @@ port80_folder="runD/open_juicy_ports/80/screenshots"
 eyewitness -f "$port80_targets" -d "$port80_folder" > /dev/null 2>&1
 echo -e "$TASK_COMPLETED"
 exit
+
 }
 
 function rampage(){
