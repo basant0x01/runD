@@ -5,6 +5,7 @@ TARGET=""
 
 function rampage(){
 : << 'RAMPAGE'
+[ a course of violent, riotous, or reckless action or behavior ]
 Rampage (R): In the context of a network scanner and exploiter, "Rampage" 
 could refer to a scanning phase where the tool aggressively looks for vulnerabilities and weaknesses 
 in the target network. This might involve port scanning, service enumeration, 
