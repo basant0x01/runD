@@ -23,11 +23,22 @@ function Unleash(){
 # MYSQL: 3306
 # MYSQL: 1433
 # RDP: 3389
+# ... Add more ports as needed
 
 my_ports=("80" "21" "22" "23")
 
-for ports in "${my_ports[@]}"; do
-    masscan -iL runD/hosts.txt -p $ports 2>/dev/null | tee > runD/all_open_ports.txt
+for port in "${my_ports[@]}"; do
+    output_file="runD/open_port${port}.txt"
+    ips_file="runD/ips_port${port}.txt"
+    
+    # Run masscan and save the output to the specified file
+    masscan -iL runD/all_hosts.txt -p $port --output-format grepable --output-filename "$output_file"
+
+    # Extract and save IPs using grep and awk
+    cat "$output_file" | grep -o 'Host:.*' | awk '{print $2}' > "$ips_file"
+
+    # Delete the previous open_port${port}.txt file
+    rm -f "$output_file"
 done
 
 }
