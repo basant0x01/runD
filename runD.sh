@@ -2,6 +2,22 @@
 
 # GLOBAL VARIABLES
 TARGET=""
+TIME_TAKING_WARRNING="It may take time, so grab your coffee!"
+TASK_COMPLETED="The script has completed the task - runD"
+
+function rampage_on_port80(){
+
+echo -e "------------------------------------------------"
+echo "Running Exploit on: port 80"
+sleep 0.5
+echo "Taking Screenshots.."
+echo -e "$TIME_TAKING_WARRNING"
+port80_targets="runD/open_juicy_ports/80/ips_port80.txt"
+port80_folder="runD/open_juicy_ports/80/screenshots"
+eyewitness -f "$port80_targets" -d "$port80_folder" > /dev/null 2>&1
+echo -e "$TASK_COMPLETED"
+exit
+}
 
 function rampage(){
 : << 'RAMPAGE'
@@ -61,6 +77,8 @@ for port in "${my_ports[@]}"; do
     # Delete the previous open_port${port}.txt file
     rm -f "$output_file"
 done
+
+rampage_on_port80
 
 }
 
