@@ -1,5 +1,4 @@
-# runD
-runD - ( Rampage Unleash Nuke and Damage )
+# runD - ( Rampage Unleash Nuke and Damage )
 
 RUN-D: Network Scanner and Exploiter
 
