@@ -14,9 +14,8 @@ echo "Taking Screenshots.."
 echo -e "$TIME_TAKING_WARRNING"
 port80_targets="runD/open_juicy_ports/80/ips_port80.txt"
 port80_folder="runD/open_juicy_ports/80/screenshots"
-eyewitness -f "$port80_targets" -d "$port80_folder" > /dev/null 2>&1
+eyewitness -f "$port80_targets" -d "$port80_folder" --max-retries 3 > /dev/null 2>&1
 echo -e "$TASK_COMPLETED"
-exit
 
 }
 
@@ -101,9 +100,11 @@ function userInput() {
 
 function mainScreen() {
     clear
-    echo "Welcome to RUN-D"
-    echo "Rampage Unleash Nuke and Damage"
-    echo "-------------------------------"
+    echo "################################################################################"
+    echo "#                             Welcome to RUN-D                                 #"
+    echo "################################################################################"
+    echo "#           Rampage Unleash Nuke and Damage - Basant Karki                     #"
+    echo "################################################################################"
     echo -e "Selected Target: "$TARGET
     rampage
 }
