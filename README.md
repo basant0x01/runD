@@ -10,5 +10,11 @@
 
   - Damage (D): The ultimate goal is to cause "Damage" to the target, which, in network security terms, could mean gaining unauthorized access, exfiltrating data, or achieving some other malicious objective.
 ---
+
+### Usage
+```
+./runD.sh (and provide target CIDR)
+```
+
 ### NOTE
 Unauthorized scanning and exploiting of networks can lead to serious legal consequences and are against the principles of responsible disclosure and ethical hacking. Always ensure you have the right permissions and follow ethical guidelines when working in the field of network security.
