@@ -1,6 +1,6 @@
 # runD - ( Rampage Unleash Nuke and Damage )
 ---
-### RUN-D: Network Scanner and Exploiter
+### A Network Scanner and Exploiter
 
   - Rampage (R): In the context of a network scanner and exploiter, "Rampage" could refer to a scanning phase where the tool aggressively looks for vulnerabilities and weaknesses in the target network. This might involve port scanning, service enumeration, and identifying potential entry points.
 
