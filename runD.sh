@@ -3,7 +3,6 @@
 # GLOBAL VARIABLES
 TARGET=""
 
-
 function rampage(){
 : << 'RAMPAGE'
 Rampage (R): In the context of a network scanner and exploiter, "Rampage" 
@@ -38,15 +37,25 @@ echo "Running: masscan"
 
 my_ports=("80" "21" "22" "23")
 
+# Create a folder to store open ports files
+mkdir -p runD/open_juicy_ports
+
 for port in "${my_ports[@]}"; do
     output_file="runD/open_port${port}.txt"
     ips_file="runD/ips_port${port}.txt"
+    port_folder="runD/open_juicy_ports/$port"
     
     # Run masscan and save the output to the specified file
     masscan -iL runD/all_hosts.txt -p $port --output-format grepable --output-filename "$output_file" > /dev/null 2>&1
 
     # Extract and save IPs using grep and awk
     cat "$output_file" | grep -o 'Host:.*' | awk '{print $2}' > "$ips_file"
+
+    # Create a folder for the port if it doesn't exist
+    mkdir -p "$port_folder"
+
+    # Move files to the respective folders
+    mv "$ips_file" "$port_folder/"
 
     # Delete the previous open_port${port}.txt file
     rm -f "$output_file"
@@ -81,5 +90,6 @@ function mainScreen() {
 
 # Main execution starts here
 userInput
-
-# Now you can use the $TARGET variable for further processing
+# --------------------------------------
+# NOTE: "IT MAY ACTS LIKE A NETWORK BOT"
+# --------------------------------------
