@@ -4,7 +4,17 @@
 TARGET=""
 
 
-function Unleash(){
+function rampage(){
+: << 'RAMPAGE'
+Rampage (R): In the context of a network scanner and exploiter, "Rampage" 
+could refer to a scanning phase where the tool aggressively looks for vulnerabilities and weaknesses 
+in the target network. This might involve port scanning, service enumeration, 
+and identifying potential entry points.
+RAMPAGE
+
+echo "Running: fping"
+mkdir runD
+fping -a -g $TARGET 2>/dev/null | tee > runD/all_hosts.txt
 
 # HTTP: 80
 # HTTPS: 443
@@ -42,14 +52,6 @@ for port in "${my_ports[@]}"; do
 done
 
 }
-
-function rampage(){
-echo "Running: fping"
-mkdir runD
-fping -a -g $TARGET 2>/dev/null | tee > runD/all_hosts.txt
-Unleash
-}
-
 
 function userInput() {
     clear
