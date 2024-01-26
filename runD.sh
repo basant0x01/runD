@@ -101,9 +101,9 @@ function userInput() {
 function mainScreen() {
     clear
     echo "################################################################################"
-    echo "#                             Welcome to RUN-D                                 #"
+    echo "#                             Welcome to AUTOPILOT                             #"
     echo "################################################################################"
-    echo "#           Rampage Unleash Nuke and Damage - Basant Karki                     #"
+    echo "#           autopilot - by Basant Karki                                         #"
     echo "################################################################################"
     echo -e "Selected Target: "$TARGET
     rampage
