@@ -5,7 +5,7 @@
 
 ### Usage
 ```
-./autopiloit.sh (and provide target CIDR)
+./runD.sh (and provide target CIDR)
 ```
 
 ### NOTE
