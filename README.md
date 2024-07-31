@@ -1,11 +1,11 @@
-# runD - ( Rampage Unleash Nuke and Damage )
+# Autopilot - ( Rampage Unleash Nuke and Damage )
 ---
 ### Network Scanner and Exploiter
 ---
 
 ### Usage
 ```
-./runD.sh (and provide target CIDR)
+./autopilot.sh (and provide target CIDR)
 ```
 
 ### NOTE
