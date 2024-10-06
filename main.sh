@@ -9,7 +9,6 @@
     # WebShot
     # Httpx
 
-
 # GLOBAL VARIABLES
 TARGET=""
 TIME_TAKING_WARRNING="It may take time, so grab your coffee!"
