@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Coder: basant0x01 (Basant Karki)
+# Usage: Network Scanner & Exploiter
+
+# Tool Requirements:
+    # fping
+    # masscan
+    # WebShot
+    # Httpx
+
+
 # GLOBAL VARIABLES
 TARGET=""
 TIME_TAKING_WARRNING="It may take time, so grab your coffee!"
@@ -8,13 +18,18 @@ TASK_COMPLETED="The script has completed the task - runD"
 function rampage_on_port80(){
 
 echo -e "------------------------------------------------"
+echo "Creating Screenshot Folder"
+mkdir runD/open_juicy_ports/80/screenshots
+echo "Resolving Live IP Address.."
+cat runD/open_juicy_ports/80/ips_port80.txt | ./httpx | tee > runD/open_juicy_ports/80/live_ips_port80.txt
 echo "Running Exploit on: port 80"
 sleep 0.5
 echo "Taking Screenshots.."
 echo -e "$TIME_TAKING_WARRNING"
 port80_targets="runD/open_juicy_ports/80/ips_port80.txt"
+live_port80_targets="runD/open_juicy_ports/80/live_ips_port80.txt"
 port80_folder="runD/open_juicy_ports/80/screenshots"
-eyewitness -f "$port80_targets" -d "$port80_folder" --max-retries 3 > /dev/null 2>&1
+node WebShot/screenshot.js -f "$live_port80_targets" -o "$port80_folder" > /dev/null 2>&1
 echo -e "$TASK_COMPLETED"
 
 }
@@ -52,7 +67,7 @@ fping -a -g $TARGET 2>/dev/null | tee > runD/all_hosts.txt
 # ... Add more ports as needed
 echo "Running: masscan"
 
-my_ports=("80" "21" "22" "23")
+my_ports=("80") #"21" "22" "23"
 
 # Create a folder to store open ports files
 mkdir -p runD/open_juicy_ports
@@ -100,17 +115,17 @@ function userInput() {
 
 function mainScreen() {
     clear
-    echo "################################################################################"
-    echo "#                             Welcome to AUTOPILOT                             #"
-    echo "################################################################################"
-    echo "#           autopilot - by Basant Karki                                         #"
-    echo "################################################################################"
+    echo "###################################################"
+    echo "#------------------Welcome to RUN-D --------------#"
+    echo "###################################################"
+    echo "#----- Scripted/Developed - by basant0x01 --------#"
+    echo "###################################################"
     echo -e "Selected Target: "$TARGET
     rampage
 }
 
 # Main execution starts here
 userInput
-# --------------------------------------
-# NOTE: "IT MAY ACTS LIKE A NETWORK BOT"
-# --------------------------------------
+# ----------------------------------------
+# NOTE: "IT MAY ACT LIKE A NETWORK PT BOT"
+# ----------------------------------------
