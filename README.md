@@ -10,7 +10,7 @@ Join the rampage, unleash your skills, and dominate your network landscape! 🚀
 
 ### Usage
 ```
-./autopilot.sh (and provide target CIDR)
+./main.sh (and provide target CIDR)
 ```
 
 ### Requirements
