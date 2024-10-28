@@ -13,6 +13,7 @@
 TARGET=""
 TIME_TAKING_WARNING="It may take time, so grab your coffee!"
 TASK_COMPLETED="The script has completed the task - runD"
+export PROJECT_NAME=""
 
 # Function to check for root privileges
 function check_root() {
@@ -39,25 +40,26 @@ could refer to a scanning phase where the tool aggressively looks for vulnerabil
 in the target network. This might involve port scanning, service enumeration, 
 and identifying potential entry points.
 RAMPAGE
-
+    
+    echo "Project Name: "$PROJECT_NAME
     echo "Running: fping"
-    mkdir -p runD
-    fping -a -g $TARGET 2>/dev/null | tee > runD/all_hosts.txt
+    mkdir -p $PROJECT_NAME
+    fping -a -g $TARGET 2>/dev/null | tee > $PROJECT_NAME/all_hosts.txt
 
     echo "Running: masscan"
 
     my_ports=("80") # "21" "22" "23" Open ports according to your requirements
 
     # Create a folder to store open ports files
-    mkdir -p runD/open_juicy_ports
+    mkdir -p $PROJECT_NAME/open_juicy_ports
 
     for port in "${my_ports[@]}"; do
-        output_file="runD/open_port${port}.txt"
-        ips_file="runD/ips_port${port}.txt"
-        port_folder="runD/open_juicy_ports/$port"
+        output_file="$PROJECT_NAME/open_port${port}.txt"
+        ips_file="$PROJECT_NAME/ips_port${port}.txt"
+        port_folder="$PROJECT_NAME/open_juicy_ports/$port"
 
         # Run masscan and save the output to the specified file
-        masscan -iL runD/all_hosts.txt -p $port --output-format grepable --output-filename "$output_file" > /dev/null 2>&1
+        masscan -iL $PROJECT_NAME/all_hosts.txt -p $port --output-format grepable --output-filename "$output_file" > /dev/null 2>&1
 
         # Extract and save IPs using grep and awk
         grep -o 'Host:.*' "$output_file" | awk '{print $2}' > "$ips_file"
@@ -78,6 +80,7 @@ RAMPAGE
 function userInput() {
     clear
     read -p "Enter your Target (Example: *.*.*.*/*): " ip
+    read -p "Enter your Project Name (Example: worldlink_pentest): " PROJECT_NAME
 
     # Validate CIDR using regex
     if [[ $ip =~ ^([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)/([0-9]+)$ ]]; then
