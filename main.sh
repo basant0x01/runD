@@ -8,6 +8,7 @@
 # masscan
 # WebShot
 # Httpx
+# ffuf
 
 # GLOBAL VARIABLES
 TARGET=""
