@@ -10,10 +10,10 @@ With features that amplify your capabilities and a sleek interface that keeps yo
 Join the rampage, unleash your skills, and dominate your network landscape! 🚀💣
 
 ### Usage
-[Note: You can directly download releases ]
 ```
 ./main.sh (and provide target CIDR)
 ```
+### [ Note: You can directly download releases to use without any issues ]
 
 ### Requirements
 - fping
