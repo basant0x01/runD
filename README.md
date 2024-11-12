@@ -1,4 +1,4 @@
-# run-D - ( Rampage Unleash Nuke and Damage ) Alernative prononce Run & Damange
+# run-D - ( Rampage Unleash Nuke and Damage ) & Alernative prononce `Run & Damage`
 ---
 ### Network Scanner and Exploiter
 ![image](https://github.com/user-attachments/assets/c29c069a-216e-4d3f-b390-1cad774be62d)
