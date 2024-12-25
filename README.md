@@ -10,9 +10,14 @@ With features that amplify your capabilities and a sleek interface that keeps yo
 
 Join the rampage, unleash your skills, and dominate your network landscape! 🚀💣
 
+## Requirement
+```
+./requirement.sh
+```
+
 ### Usage
 ```
-./main.sh (Target CIDR)
+./runD.sh
 ```
 ### [ Note: You can directly download releases to use without any issues ]
 
